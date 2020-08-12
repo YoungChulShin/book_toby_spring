@@ -1,6 +1,8 @@
 package springbook.user;
 
 //import org.springframework.boot.autoconfigure.SpringBootApplication;
+import springbook.user.dao.ConnectionMaker;
+import springbook.user.dao.DConnectionMaker;
 import springbook.user.dao.UserDao;
 import springbook.user.domain.User;
 
@@ -11,7 +13,7 @@ public class SpringBookApplication {
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
 
-        UserDao dao = new UserDao();
+        UserDao dao = new UserDao(new DConnectionMaker());
 
         User user = new User();
         user.setId("go1323");
